@@ -7,12 +7,12 @@ import * as fromIngresoEgreso from './ingreso-egreso/ingreso-egreso.reducer';
 export interface AppState {
     ui: fromUI.State;
     auth: fromAuth.AuthState;
-    ingresoEgreso: fromIngresoEgreso.IngresoEgresoState;
+    // ingresoEgreso: fromIngresoEgreso.IngresoEgresoState;
 }
 
 // ActionReducerMap -> nos permite fucionar varios reducers en uno solo
 export const appReducers: ActionReducerMap <AppState> =  {
     ui: fromUI.uiReducer,
     auth: fromAuth.authReducer,
-    ingresoEgreso: fromIngresoEgreso.ingresoEgresoReducer
+    // ingresoEgreso: fromIngresoEgreso.ingresoEgresoReducer
 };

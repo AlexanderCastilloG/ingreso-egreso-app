@@ -1,9 +1,11 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { AppState } from 'src/app/app.reducer';
 import { Subscription } from 'rxjs';
+import { Label } from 'ng2-charts';
+
+// AppState - Extendido
+import * as  fromIngresoEgreso from '../ingreso-egreso.reducer';
 import { IngresoEgreso } from '../ingreso-egreso.model';
-import { Label, Color} from 'ng2-charts';
 
 @Component({
   selector: 'app-estadistica',
@@ -23,13 +25,11 @@ export class EstadisticaComponent implements OnInit, OnDestroy {
   public doughnutChartLabels: Label[] = ['Ingresos', 'Egresos'];
   public doughnutChartData: number[] = [];
   public doughnutColors:any[] = [
-    // { backgroundColor: ["#86c7f3", "#ffe199"] },
-    // { borderColor: ["#AEEBF2", "#FEFFC9"] }];
     { backgroundColor: ["#66bb6a", "#ef5350"] },
     { borderColor: ["#2e7d32", "#c62828"] }
   ];
 
-  constructor(private store: Store<AppState>) { }
+  constructor(private store: Store<fromIngresoEgreso.AppState>) { }
 
   ngOnInit() {
     this.subscription = this.store.select('ingresoEgreso').subscribe( ingresoEgreso => {

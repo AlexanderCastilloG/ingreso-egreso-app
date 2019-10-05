@@ -93,7 +93,8 @@ export class AuthService {
   }
 
   logout(){
-    this.router.navigate(['/login']);
+    // this.router.navigate(['/login']);
+    window.location.assign("/login");
     this.afAuth.auth.signOut();
     this.store.dispatch(new UnsetUserAction());
   }
